@@ -11,7 +11,7 @@ export const fetchMoviesSuccess = (movies) => ({
 })
 
 const initState = {
-  movies: {}
+  movies: []
 };
 
 export default (state = initState, action) => {
@@ -20,13 +20,14 @@ export default (state = initState, action) => {
       // const movies = {};
       // ...action.payload,
       // action.payload.forEach(movie => movies[movie._id] = movie);
-      // return {
-      //   ...state,
-      //   movies: {
-      //     ...state.movies,
-      //     ...movies
-      //   }
-      // };
+      return {
+        ...state,
+        movies: [action.payload]
+        // movies: {
+          // ...state.movies,
+          // ...movies
+        // }
+      };
     }
     default:
       return state;
