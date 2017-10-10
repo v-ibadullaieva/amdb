@@ -17,16 +17,15 @@ const initState = {
 export default (state = initState, action) => {
   switch (action.type) {
     case MOVIES_FETCH_SUCCESS: {
-      // const movies = {};
-      // ...action.payload,
-      // action.payload.forEach(movie => movies[movie._id] = movie);
-      // return {
-      //   ...state,
-      //   movies: {
-      //     ...state.movies,
-      //     ...movies
-      //   }
-      // };
+      console.log(action.payload.id);
+      const movie = action.payload;
+      return {
+        ...state,
+        movies: {
+          ...state.movies,
+          [action.payload.id]: movie
+        }
+      };
     }
     default:
       return state;

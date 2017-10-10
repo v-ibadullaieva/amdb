@@ -13,6 +13,5 @@ export default (action$) =>
     action$
       .ofType(MOVIES_FETCH)
       .flatMap(({payload}) =>
-        getMovies().then(movies => fetchMoviesSuccess(movies))
-      )
+        getMovies().then(movies => fetchMoviesSuccess(movies)))
   )

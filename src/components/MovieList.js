@@ -9,11 +9,10 @@ class MovieList extends Component {
     this.props.fetchMovies();
   }
   render() {
-  console.log(this.props.movies);
     return (
       <CardColumns>
         {this.props.movies.map(movie =>
-          <Movie { ...movie }/>
+          <Movie key={1 /* TODO */} {...movie}/>
         )}
       </CardColumns>
     )
@@ -22,7 +21,7 @@ class MovieList extends Component {
 
 export default connect(
   (state) => ({
-    movies: state.movies
+    movies: Object.values(state.app.movies)
   }),
   { fetchMovies }
 )(MovieList);
