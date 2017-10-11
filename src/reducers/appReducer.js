@@ -11,22 +11,26 @@ export const fetchMoviesSuccess = (movies) => ({
 })
 
 const initState = {
-  movies: []
+  movies: {},
+  moviesList: {}
 };
 
 export default (state = initState, action) => {
   switch (action.type) {
     case MOVIES_FETCH_SUCCESS: {
-      // const movies = {};
-      // ...action.payload,
-      // action.payload.forEach(movie => movies[movie._id] = movie);
+      const movies = {};
+      action.payload.results.forEach(movie => movies[movie.id] = movie);
+
       return {
         ...state,
-        movies: [action.payload]
-        // movies: {
-          // ...state.movies,
-          // ...movies
-        // }
+        movies: {
+          ...state.movies,
+          ...movies
+        },
+        moviesList: {
+          ...state.moviesList,
+          [action.payload.page]: action.payload
+        }
       };
     }
     default:
