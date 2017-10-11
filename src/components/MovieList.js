@@ -12,7 +12,7 @@ class MovieList extends Component {
     return (
       <CardColumns>
         {this.props.movies.map(movie =>
-          <Movie key={1 /* TODO */} {...movie}/>
+          <Movie key={movie.id} {...movie}/>
         )}
       </CardColumns>
     )

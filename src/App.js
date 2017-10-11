@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
-import MovieList from './components/MovieList';
+import MoviesPage from './components/MoviesPage';
 
 class App extends Component {
   render() {
     return (
       <Container>
-        <MovieList />
+        <MoviesPage />
       </Container>
     );
   }

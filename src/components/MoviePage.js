@@ -1,18 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
-// import { connect } from 'react-redux';
-// import { fetchMovies } from '../reducers/appReducer';
-import { Link } from 'react-router'
+import Movie from './Movie';
 
-
-const Movie = (movie) => {
+const MoviePage = (movie) => {
   return (
     <Card>
       <CardImg top width="100%" src={movie.poster_path} alt="Card image cap" />
       <CardBody>
-        <CardTitle>
-          <Link to={`movie/${movie.id}`}>{movie.original_title}</Link>
-        </CardTitle>
+        <CardTitle>lol</CardTitle>
         <CardSubtitle>{movie.homepage}</CardSubtitle>
         <CardText>{movie.overview}</CardText>
       </CardBody>
@@ -20,4 +16,6 @@ const Movie = (movie) => {
   )
 }
 
-export default Movie;
+export default connect(
+  (state, props) => ({ movie: state.app.movies[props.params.id] })
+)(MoviePage);
