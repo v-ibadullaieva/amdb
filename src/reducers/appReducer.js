@@ -46,9 +46,13 @@ export default (state = initState, action) => {
       };
     }
     case MOVIE_FETCH_SUCCESS: {
-      // const movie = {
-      //   ...action.payload
-      // };
+      return {
+        ...state,
+        movies: {
+          ...state.movies,
+          [action.payload.id]: action.payload
+        }
+      }
     }
     default:
       return state;

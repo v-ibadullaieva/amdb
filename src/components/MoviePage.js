@@ -4,16 +4,16 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reac
 import Movie from './Movie';
 import { fetchMovie } from '../reducers/appReducer';
 
-// TODO: fetch movie data IF not already fetched
-// TODO: do not show any data unless it is fetched
-
 class MoviePage extends Component {
   componentDidMount() {
-    this.props.fetchMovie({ id: this.props.params.id });
+    if (!this.props.movie) {
+      this.props.fetchMovie({ id: this.props.params.id });
+    }
   }
 
   render() {
-    const movie = this.props.movie;
+    const { movie } = this.props;
+
     if (movie) {
       return (
         <Card>
