@@ -1,13 +1,25 @@
 export const MOVIES_FETCH = "MOVIES_FETCH";
+export const MOVIE_FETCH = "MOVIE_FETCH";
 export const MOVIES_FETCH_SUCCESS = "MOVIES_FETCH_SUCCESS";
+export const MOVIE_FETCH_SUCCESS = "MOVIE_FETCH_SUCCESS";
 
 export const fetchMovies = () => ({
   type: MOVIES_FETCH
 })
 
+export const fetchMovie = ({ id }) => ({
+  type: MOVIE_FETCH,
+  payload: { id }
+})
+
 export const fetchMoviesSuccess = (movies) => ({
   type: MOVIES_FETCH_SUCCESS,
   payload: movies
+})
+
+export const fetchMovieSuccess = (movie) => ({
+  type: MOVIE_FETCH_SUCCESS,
+  payload: movie
 })
 
 const initState = {
@@ -32,6 +44,11 @@ export default (state = initState, action) => {
           [action.payload.page]: action.payload
         }
       };
+    }
+    case MOVIE_FETCH_SUCCESS: {
+      // const movie = {
+      //   ...action.payload
+      // };
     }
     default:
       return state;
