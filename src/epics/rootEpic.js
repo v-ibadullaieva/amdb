@@ -12,6 +12,6 @@ export default (action$) =>
   Observable.merge(
     action$
       .ofType(MOVIES_FETCH)
-      .flatMap(({payload}) =>
+      .flatMap(({ payload }) =>
         getMovies().then(movies => fetchMoviesSuccess(movies)))
   )

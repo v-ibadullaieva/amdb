@@ -8,6 +8,7 @@ class MovieList extends Component {
   componentDidMount() {
     this.props.fetchMovies();
   }
+
   render() {
     return (
       <CardColumns>
