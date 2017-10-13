@@ -1,17 +1,23 @@
 import React from 'react';
-// import { CardColumns } from 'reactstrap';
-// import { connect } from 'react-redux';
-// import { fetchMovies } from '../reducers/appReducer';
+import { connect } from 'react-redux';
+import { fetchMovies } from '../reducers/appReducer';
 import MovieList from './MovieList';
-// import Pagination from './Pagination';
+import SearchMovieForm from './SearchMovieForm';
+import Pagination from './Pagination';
 
 const MoviesPage = () => {
   return (
     <div>
+      <SearchMovieForm form='SearchMovieForm' onSubmit={fetchMovies} />
       <MovieList />
+      <Pagination />
     </div>
   )
 }
 
-export default MoviesPage;
-
+export default connect(
+  (state) => ({
+    movies: Object.values(state.app.movies)
+  }),
+  { fetchMovies }
+)(MoviesPage);

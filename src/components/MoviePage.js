@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
+import { Container, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 import Movie from './Movie';
 import { fetchMovie } from '../reducers/appReducer';
 
@@ -16,14 +16,20 @@ class MoviePage extends Component {
 
     if (movie) {
       return (
-        <Card>
-          <CardImg top width="100%" src={'http://image.tmdb.org/t/p/w154/' + movie.poster_path} alt="Card image cap" />
-          <CardBody>
-            <CardTitle>{movie.title}</CardTitle>
-            <CardSubtitle>{movie.homepage}</CardSubtitle>
-            <CardText>{movie.overview}</CardText>
-          </CardBody>
-        </Card>
+        <Container>
+          <Row className='mt-5'>
+            <Col xs='3'>
+              <Card>
+                <CardImg top width="100%" src={'http://image.tmdb.org/t/p/w154/' + movie.poster_path} alt="Card image cap" />
+                <CardBody>
+                  <CardTitle>{movie.title}</CardTitle>
+                  <CardSubtitle>{movie.homepage}</CardSubtitle>
+                  <CardText>{movie.overview}</CardText>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       )
     } else {
       return null
