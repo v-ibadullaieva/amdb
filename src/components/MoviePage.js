@@ -17,18 +17,14 @@ class MoviePage extends Component {
     if (movie) {
       return (
         <Container>
-          <Row className='mt-5'>
-            <Col xs='3'>
-              <Card>
-                <CardImg top width="100%" src={'http://image.tmdb.org/t/p/w154/' + movie.poster_path} alt="Card image cap" />
-                <CardBody>
-                  <CardTitle>{movie.title}</CardTitle>
-                  <CardSubtitle>{movie.homepage}</CardSubtitle>
-                  <CardText>{movie.overview}</CardText>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
+          <Card>
+            <CardImg top width="100%" src={'http://image.tmdb.org/t/p/w154/' + movie.poster_path} alt="Card image cap" />
+            <CardBody>
+              <CardTitle>{movie.title}</CardTitle>
+              <CardSubtitle>{movie.homepage}</CardSubtitle>
+              <CardText>{movie.overview}</CardText>
+            </CardBody>
+          </Card>
         </Container>
       )
     } else {

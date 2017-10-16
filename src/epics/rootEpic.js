@@ -5,8 +5,8 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/merge';
 import { Observable } from 'rxjs/Observable';
-import { getMovies, getMovie } from '../services/api';
-import { MOVIES_FETCH, MOVIE_FETCH, fetchMovieSuccess, fetchMoviesSuccess } from '../reducers/appReducer';
+import { getMovies, getMovie, searchMovies } from '../services/api';
+import { MOVIES_FETCH, MOVIE_FETCH, MOVIES_SEARCH, fetchMovieSuccess, fetchMoviesSuccess } from '../reducers/appReducer';
 
 export default (action$) =>
   Observable.merge(
@@ -17,5 +17,8 @@ export default (action$) =>
     action$
       .ofType(MOVIE_FETCH)
       .flatMap(({ payload }) =>
-        getMovie({ id: payload.id }).then(movie => fetchMovieSuccess(movie)))
-  )
+        getMovie({ id: payload.id }).then(movie => fetchMovieSuccess(movie))),
+     action$
+     	.ofType(MOVIES_SEARCH)
+     	.flatMap(({ payload }) =>
+     		searchMovies({ query: payload.query }).then(movies => fetchMoviesSuccess(movies))))

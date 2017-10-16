@@ -14,7 +14,7 @@ export default class Example extends React.Component {
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">
+          <PaginationLink href={`movies/page=${2}`}>
             2
           </PaginationLink>
         </PaginationItem>

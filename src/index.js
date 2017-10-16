@@ -13,8 +13,7 @@ import MoviePage from './components/MoviePage';
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" componnet={App}>
-        <IndexRoute component={App} />
+      <Route path="/" component={App}>
         <Route path="movies" component={MoviesPage} />
         <Route path="movie/:id" component={MoviePage} />
       </Route>

@@ -2,6 +2,7 @@ export const MOVIES_FETCH = "MOVIES_FETCH";
 export const MOVIE_FETCH = "MOVIE_FETCH";
 export const MOVIES_FETCH_SUCCESS = "MOVIES_FETCH_SUCCESS";
 export const MOVIE_FETCH_SUCCESS = "MOVIE_FETCH_SUCCESS";
+export const MOVIES_SEARCH = "MOVIES_SEARCH";
 
 export const fetchMovies = () => ({
   type: MOVIES_FETCH
@@ -22,6 +23,11 @@ export const fetchMovieSuccess = (movie) => ({
   payload: movie
 })
 
+export const searchMovies = ({ query }) => ({
+  type: MOVIES_SEARCH,
+  payload: { query }
+})
+
 const initState = {
   movies: {},
   moviesList: {}
@@ -36,7 +42,7 @@ export default (state = initState, action) => {
       return {
         ...state,
         movies: {
-          ...state.movies,
+          // ...state.movies,
           ...movies
         },
         moviesList: {
