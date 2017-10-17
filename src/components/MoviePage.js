@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
-import Movie from './Movie';
+import { Container, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
+// import Movie from './Movie';
 import { fetchMovie } from '../reducers/appReducer';
 
 class MoviePage extends Component {

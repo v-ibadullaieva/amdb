@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchMovies } from '../reducers/appReducer';
+// import { searchMovies } from '../reducers/appReducer';
 import MovieList from './MovieList';
 import SearchMovieForm from './SearchMovieForm';
 import Pagination from './Pagination';
@@ -15,8 +15,8 @@ class MoviesPage extends Component {
         <SearchMovieForm
           form='SearchMovieForm'
           onSubmit={this.searchMovies} />
-        <MovieList params={this.props.location.query} />
         <Pagination page={this.props.location.page} />
+        <MovieList params={this.props.location.query} />
       </div>
     )
   }

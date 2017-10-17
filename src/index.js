@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import registerServiceWorker from './registerServiceWorker';

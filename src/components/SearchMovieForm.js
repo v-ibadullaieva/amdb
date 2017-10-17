@@ -11,7 +11,7 @@ class SearchMovieForm extends Component {
       <Form onSubmit={this.props.handleSubmit}>
         <InputGroup className='mt-5 mb-4'>
           <InputGroupAddon>
-            <span className='search-icon'>🔍</span>
+            <span className='search-icon' role='img'>🔍</span>
           </InputGroupAddon>
           <Field component={Input} name='query' placeholder='Enter movie' />
         </InputGroup>
